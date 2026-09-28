@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Contact QR Code</title>
+
+  <!-- When added to the iPhone Home Screen, open full screen with this name and icon -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Contact QR">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <style>
+    /* Stays white in dark mode too: QR codes scan best on a bright, plain background. */
+    :root {
+      --ground: #ffffff;
+      color-scheme: light;
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      box-sizing: border-box;
+      background: var(--ground);
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-inline: 16px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      width: min(100%, 90vh, 640px);
+      width: min(100%, 90dvh, 640px);
+    }
+  </style>
+</head>
+<body>
+  <img src="qr-code.jpg" width="1024" height="1024" alt="QR code for my contact details">
+
+  <!-- Keep a copy on the phone so the page opens without a signal -->
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+  </script>
+</body>
+</html>
